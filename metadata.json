@@ -1,0 +1,6 @@
+{
+  "name": "Relax Spa Bangalore",
+  "description": "Bangalore's premium men's luxury wellness spa and home message service, featuring modern facility bookings and an AI wellness concierge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

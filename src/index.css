@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", "Georgia", ui-serif, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom palette matching 'Sophisticated Dark' */
+  --color-gold: #d4af37;
+  --color-gold-hover: #bda030;
+  
+  --color-stone-900: #141414;
+  --color-stone-950: #0a0a0a;
+
+  /* Seamless conversion of all amber styling to our premium champagne gold color */
+  --color-amber-50: #fbf9f0;
+  --color-amber-100: #f6efa0;
+  --color-amber-200: #eddba6;
+  --color-amber-300: #e2c26f;
+  --color-amber-400: #d4af37;
+  --color-amber-500: #d4af37;
+  --color-amber-600: #b5902b;
+  --color-amber-700: #8c6e1e;
+  --color-amber-800: #574312;
+  --color-amber-900: #362908;
+}
+
+body {
+  background-color: #0a0a0a;
+  background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #0a0a0a 100%);
+  background-attachment: fixed;
+  color: #e5e7eb;
+}
+
+/* Custom scrollbar aesthetics for luxury desktop interfaces */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.15);
+  border-radius: 99px;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.35);
+}
+
+/* Base custom interactive effects */
+.aistudio-avatar {
+  background-size: cover;
+  background-position: center;
+}
+

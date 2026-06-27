@@ -1,0 +1,153 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase user unique ID"
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User's display name"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "User's premium avatar link"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp for record creation"
+        },
+        "loyaltyPoints": {
+          "type": "integer",
+          "description": "Dynamic sum of current user points accumulated"
+        }
+      },
+      "required": [
+        "uid",
+        "email"
+      ]
+    },
+    "HabitLog": {
+      "title": "HabitLog",
+      "description": "A daily wellness activity logged by the user for loyalty rewards",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID of user logging the habit"
+        },
+        "activity": {
+          "type": "string",
+          "enum": ["meditation", "hydration", "stretching", "journaling"],
+          "description": "The category of logged self-healing habit"
+        },
+        "date": {
+          "type": "string",
+          "description": "Year-Month-Day representation (YYYY-MM-DD)"
+        },
+        "rewardPoints": {
+          "type": "integer",
+          "description": "Points given for the daily milestone log"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO string representation of the activity completion"
+        }
+      },
+      "required": ["userId", "activity", "date", "rewardPoints", "createdAt"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "A booking reservation for a spa treatment",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "ID of the customer who booked the service"
+        },
+        "customerName": {
+          "type": "string",
+          "description": "Full name of the customer"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "WhatsApp contact number"
+        },
+        "selectedService": {
+          "type": "string",
+          "description": "Name of the chosen therapeutic service"
+        },
+        "serviceMode": {
+          "type": "string",
+          "enum": [
+            "spa",
+            "home"
+          ],
+          "description": "Type of treatment chosen (In-Spa vs Home delivery)"
+        },
+        "bookingDate": {
+          "type": "string",
+          "description": "Selected treatment date"
+        },
+        "bookingTime": {
+          "type": "string",
+          "description": "Selected treatment time slot"
+        },
+        "homeAddress": {
+          "type": "string",
+          "description": "Customer home address (optional for Home mode)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Therapeutic instructions or custom notes"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "confirmed",
+            "completed"
+          ],
+          "description": "Current status of reservation"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when reservation was confirmed"
+        }
+      },
+      "required": [
+        "userId",
+        "customerName",
+        "phoneNumber",
+        "selectedService",
+        "serviceMode",
+        "bookingDate",
+        "bookingTime",
+        "status",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Collection of premium user profiles registered via Google Auth"
+    },
+    "users/{userId}/habitLogs/{logId}": {
+      "schema": "HabitLog",
+      "description": "Daily logged wellness activities for incremental loyalty tier accumulation"
+    },
+    "bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of all spa treatment reservations"
+    }
+  }
+}
